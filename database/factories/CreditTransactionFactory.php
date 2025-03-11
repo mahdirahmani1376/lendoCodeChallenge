@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Wallet;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,8 @@ class CreditTransactionFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'wallet_id' => Wallet::factory(),
+            'amount' => random_int(0,1000)
         ];
     }
 }

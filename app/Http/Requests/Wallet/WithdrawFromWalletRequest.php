@@ -23,7 +23,6 @@ class WithdrawFromWalletRequest extends FormRequest
     {
         return [
             'amount' => ['integer', 'required'],
-            'user_id' => ['required'],
         ];
     }
 }

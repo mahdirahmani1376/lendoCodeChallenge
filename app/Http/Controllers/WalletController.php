@@ -12,11 +12,11 @@ use App\Http\Resources\WalletResource;
 
 class WalletController extends Controller
 {
-    public function create(StoreWalletAction $storeWalletAction)
+    public function store(StoreWalletAction $storeWalletAction)
     {
         $wallet = $storeWalletAction(auth()->user()->id);
 
-        return WalletResource::make($wallet->load('credit_transactions', 'user'));
+        return WalletResource::make($wallet->load('creditTransactions', 'user'));
     }
 
     public function deposit(DepositWalletRequest $request, DepositWalletAction $depositWalletAction)
@@ -27,7 +27,7 @@ class WalletController extends Controller
 
         $wallet = $depositWalletAction($data);
 
-        return WalletResource::make($wallet->load('credit_transactions', 'user'));
+        return WalletResource::make($wallet->load('creditTransactions', 'user'));
     }
 
     public function withdraw(WithdrawFromWalletRequest $request, WithdrawFromWalletAction $withdrawFromWalletAction)
@@ -38,13 +38,13 @@ class WalletController extends Controller
 
         $wallet = $withdrawFromWalletAction($data);
 
-        return WalletResource::make($wallet->load('credit_transactions', 'user'));
+        return WalletResource::make($wallet->load('creditTransactions', 'user'));
     }
 
     public function show(ShowWalletAction $showWalletAction)
     {
         $wallet = $showWalletAction(auth()->id(), true);
 
-        return WalletResource::make($wallet->load('credit_transactions', 'user'));
+        return WalletResource::make($wallet->load('creditTransactions', 'user'));
     }
 }

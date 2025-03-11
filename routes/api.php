@@ -21,5 +21,5 @@ Route::controller(WalletController::class)
         Route::post('/create', 'store')->name('wallet.store');
         Route::post('/deposit', 'deposit')->name('wallet.deposit');
         Route::post('/withdraw', 'withdraw')->name('wallet.withdraw');
-        Route::post('/balance/{wallet_id}', 'show')->name('wallet.show');
+        Route::get('/balance/{wallet_id}', 'show')->name('wallet.show');
     });

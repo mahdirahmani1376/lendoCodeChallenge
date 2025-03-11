@@ -9,7 +9,7 @@ class StoreWalletAction
 {
     public function __invoke(int $userId): Wallet
     {
-        $wallet = Wallet::query()->where('user_id', $userId);
+        $wallet = Wallet::query()->where('user_id', $userId)->first();
         if ($wallet) {
             throw WalletException::causeOfAlreadyExistsForUserId($userId);
         }

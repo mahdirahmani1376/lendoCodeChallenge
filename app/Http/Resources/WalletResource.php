@@ -4,6 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use App\Http\Resources\CreditTransactionResource;
 
 class WalletResource extends JsonResource
 {
@@ -20,7 +21,7 @@ class WalletResource extends JsonResource
             'balance' => $this->balance,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
-            'credit_transactions' => CreditTransactionResource::collection($this->whenLoaded('credit_transactions')),
+            'credit_transactions' => CreditTransactionResource::collection($this->whenLoaded('creditTransactions')),
             'user' => UserResource::make($this->whenLoaded('user')),
         ];
     }

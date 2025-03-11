@@ -17,7 +17,7 @@ class Wallet extends Model
         'balance',
     ];
 
-    public function creaditTransactions(): HasMany
+    public function creditTransactions(): HasMany
     {
         return $this->hasMany(CreditTransaction::class, 'wallet_id');
     }
