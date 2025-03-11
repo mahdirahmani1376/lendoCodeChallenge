@@ -16,6 +16,8 @@ class DepositWalletAction
     {
         $wallet = ($this->showWalletAction)($data['user_id']);
 
+        // user pays the invoice via bankgateway interface like: SamanBankGateWayInterace
+
         $creditTransactions = ($this->storeCreditTransactionAction)([
             'wallet_id' => $wallet->id,
             'amount' => $data['amount'],

@@ -20,6 +20,8 @@ class WithdrawFromWalletAction
             throw WalletException::causeOfWithDrawAmountBiggerThanWalletBalance();
         }
 
+        // credit_transaction amount refund via bankgateway interface like: AsanPardakhtRefundService
+
         $creditTransactions = ($this->storeCreditTransactionAction)([
             'wallet_id' => $wallet->id,
             'amount' => $data['amount'] * -1,
